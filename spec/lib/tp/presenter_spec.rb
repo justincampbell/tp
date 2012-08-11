@@ -19,13 +19,14 @@ describe TP::Presenter do
   }
 
   before :each do
+    Keyboard.stub read: :return
     Screen.stub width: 20, height: 20, suggest: nil
   end
 
   describe "#present" do
     it "works" do
-      Keyboard.should_receive(:wait_for_return).exactly(4).times
-      Screen.should_receive(:clear!).exactly(4).times
+      Keyboard.should_receive(:wait_for_return).exactly(1).times
+      Screen.should_receive(:clear!).exactly(5).times
 
       presenter.should_receive(:print).exactly(3).times
 

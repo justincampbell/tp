@@ -10,10 +10,19 @@ module TP
       Screen.suggest 30, 8
       Keyboard.wait_for_return
 
-      slides.each do |slide|
+      loop do
         Screen.clear!
-        show_slide slide
-        Keyboard.wait_for_return
+
+        show_slide slide_deck.current or break
+
+        case Keyboard.read
+        when :right, :down, :space, :return, 'l', 'k'
+          slide_deck.next
+        when :left, :up, :backspace, 'h', 'j'
+          slide_deck.previous
+        when 'q'
+          break
+        end
       end
 
       Screen.clear!
@@ -27,7 +36,13 @@ module TP
       result.map { |string| Slide.new string }
     end
 
+    def slide_deck
+      @slide_deck ||= SlideDeck.new slides
+    end
+
     def show_slide(slide)
+      return unless slide
+
       buffer = slide.header.center Screen.width
 
       if slide.body
@@ -41,6 +56,8 @@ module TP
       end
 
       print buffer
+
+      true
     end
 
     def bullet
