@@ -1,3 +1,5 @@
+require 'support/klass'
+
 puts RUBY_DESCRIPTION
 
 if RUBY_DESCRIPTION.start_with? "ruby 1.9"
