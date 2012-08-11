@@ -12,6 +12,8 @@ module TP
         show_slide slide
         Keyboard.wait_for_enter
       end
+
+      Screen.clear!
     end
 
     def slides
