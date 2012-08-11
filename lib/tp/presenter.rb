@@ -25,17 +25,19 @@ module TP
     end
 
     def show_slide(slide)
-      puts slide.header.center Screen.width
+      buffer = slide.header.center Screen.width
 
       if slide.body
-        puts "\n"
+        buffer << "\n\n"
 
         if slide.paragraph
-          puts slide.body.center Screen.width
+          buffer << slide.paragraph.center(Screen.width)
         else
-          puts slide.bullets.map { |string| string.prepend bullet }
+          slide.bullets.each { |string| buffer << "#{bullet}#{string}\n" }
         end
       end
+
+      print buffer
     end
 
     def bullet
