@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe String, :focus do
+describe String do
   describe "#wrap" do
     let(:string) { "One two three four five" }
 
