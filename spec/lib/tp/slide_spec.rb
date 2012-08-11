@@ -8,8 +8,30 @@ describe TP::Slide do
   }
 
   its(:markdown) { should == markdown }
-  its(:header) { should == "First Slide" }
-  its(:body) { should == "* Bullet 1\n* Bullet 2" }
+
+  context "with bullets" do
+    let(:markdown) {
+      "# First Slide\n\n* Bullet 1\n* Bullet 2"
+    }
+
+    its(:header) { should == "First Slide" }
+    its(:body) { should == "* Bullet 1\n* Bullet 2" }
+
+    its(:bullets) { should =~ ["Bullet 1", "Bullet 2"] }
+    its(:paragraph) { should be_nil }
+  end
+
+  context "with a paragraph" do
+    let(:markdown) {
+      "# First Slide\n\nThis is a paragraph of text"
+    }
+
+    its(:header) { should == "First Slide" }
+    its(:body) { should == "This is a paragraph of text" }
+
+    its(:bullets) { should be_nil }
+    its(:paragraph) { should == "This is a paragraph of text" }
+  end
 
   context "with just a header" do
     let(:markdown) {
@@ -18,6 +40,9 @@ describe TP::Slide do
 
     its(:header) { should == "First Slide" }
     its(:body) { should be_nil }
+
+    its(:bullets) { should be_nil }
+    its(:paragraph) { should be_nil }
   end
 
   context "with trailing newlines" do

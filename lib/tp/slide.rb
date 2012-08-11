@@ -17,5 +17,17 @@ module TP
 
       match[1] if match
     end
+
+    def bullets
+      return unless body
+
+      result = body.scan(/^\*\s+(.+)/).flatten
+
+      result if result.any?
+    end
+
+    def paragraph
+      body unless bullets
+    end
   end
 end
