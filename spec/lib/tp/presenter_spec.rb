@@ -6,10 +6,14 @@ describe TP::Presenter do
     "# First Slide\n\n* Bullet 1\n* Bullet 2\n\n# Second Slide"
   }
 
+  before :each do
+    Screen.stub width: 20, height: 20
+  end
+
   describe "#present" do
     it "works" do
-      presenter.should_receive(:print).twice
-      presenter.should_receive(:puts).twice
+      Screen.should_receive(:clear!).twice
+      presenter.should_receive(:puts).at_least(:once)
       $stdin.should_receive(:gets).twice
 
       presenter.present

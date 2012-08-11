@@ -8,7 +8,7 @@ module TP
 
     def present
       slides.each do |slide|
-        clear_screen
+        Screen.clear!
         show_slide slide
         wait_for_enter
       end
@@ -22,12 +22,13 @@ module TP
       result.map { |string| Slide.new string }
     end
 
-    def clear_screen
-      print "\e[2J\e[f"
-    end
-
     def show_slide(slide)
-      puts slide.markdown
+      puts slide.header.center Screen.width
+
+      if slide.body
+        puts "\n"
+        puts slide.body
+      end
     end
 
     def wait_for_enter
