@@ -49,7 +49,10 @@ module TP
         buffer << "\n\n"
 
         if slide.paragraph
-          buffer << slide.paragraph.center(Screen.width)
+          paragraph = slide.paragraph.wrap Screen.width
+          paragraph = paragraph.center Screen.width if paragraph.lines.one?
+
+          buffer << paragraph
         else
           slide.bullets.each { |string| buffer << "#{bullet}#{string}\n" }
         end

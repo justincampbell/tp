@@ -1,5 +1,6 @@
 require 'keyboard'
 require 'screen'
+require 'string'
 
 require 'tp/presenter'
 require 'tp/slide'
