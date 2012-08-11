@@ -1,4 +1,4 @@
-# tp
+# tp [![Build Status](https://secure.travis-ci.org/JustinCampbell/tp.png)](https://secure.travis-ci.org/JustinCampbell/tp)
 
 Terminal Presenter
 
