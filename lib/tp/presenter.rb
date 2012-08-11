@@ -7,6 +7,9 @@ module TP
     end
 
     def present
+      Screen.suggest 30, 8
+      Keyboard.wait_for_enter
+
       slides.each do |slide|
         Screen.clear!
         show_slide slide
