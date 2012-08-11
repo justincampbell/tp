@@ -1,4 +1,10 @@
-source 'https://rubygems.org'
+source :rubygems
 
-# Specify your gem's dependencies in tp.gemspec
 gemspec
+
+group :development, :test do
+  group :darwin do
+    gem 'rb-fsevent'
+    gem 'growl'
+  end
+end

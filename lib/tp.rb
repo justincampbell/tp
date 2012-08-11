@@ -1,5 +1,5 @@
 require "tp/version"
 
-module Tp
+module TP
   # Your code goes here...
 end
