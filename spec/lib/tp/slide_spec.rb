@@ -9,4 +9,24 @@ describe TP::Slide do
 
   its(:markdown) { should == markdown }
   its(:header) { should == "First Slide" }
+  its(:body) { should == "* Bullet 1\n* Bullet 2" }
+
+  context "with just a header" do
+    let(:markdown) {
+      "# First Slide"
+    }
+
+    its(:header) { should == "First Slide" }
+    its(:body) { should be_nil }
+  end
+
+  context "with trailing newlines" do
+    let(:markdown) {
+      "# First Slide\n\n* Bullet 1\n* Bullet 2\n\n"
+    }
+
+    it "strips whitespace" do
+      slide.markdown.should == "# First Slide\n\n* Bullet 1\n* Bullet 2"
+    end
+  end
 end

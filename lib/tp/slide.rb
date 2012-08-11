@@ -3,11 +3,19 @@ module TP
     attr_accessor :markdown
 
     def initialize(markdown)
-      self.markdown = markdown
+      self.markdown = markdown.strip
     end
 
     def header
-      markdown.match(/^#\s(.+)\n\n/)[1]
+      match = markdown.match /^#\s*(.+)(?:\n)*/
+
+      match[1] if match
+    end
+
+    def body
+      match = markdown.match /^#\s*.+\n\n(.*)/m
+
+      match[1] if match
     end
   end
 end
