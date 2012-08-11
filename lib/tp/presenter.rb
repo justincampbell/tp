@@ -18,6 +18,8 @@ module TP
       result = markdown.split /^# /
       result.keep_if { |string| string != "" }
       result.map! { |string| "# " + string }
+
+      result.map { |string| Slide.new string }
     end
 
     def clear_screen
@@ -25,7 +27,7 @@ module TP
     end
 
     def show_slide(slide)
-      puts slide
+      puts slide.markdown
     end
 
     def wait_for_enter
