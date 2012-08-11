@@ -27,12 +27,17 @@ module TP
 
       if slide.body
         puts "\n"
-        puts slide.body
+
+        if slide.paragraph
+          puts slide.body.center Screen.width
+        else
+          puts slide.bullets.map { |string| string.prepend bullet }
+        end
       end
     end
 
-    def wait_for_enter
-      $stdin.gets
+    def bullet
+      "\u2022 "
     end
   end
 end
