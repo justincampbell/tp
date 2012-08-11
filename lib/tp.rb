@@ -1,6 +1,7 @@
+require 'keyboard'
 require 'screen'
 
-require 'tp/slide'
 require 'tp/presenter'
+require 'tp/slide'
 require 'tp/version'
 

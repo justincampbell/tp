@@ -14,7 +14,7 @@ describe TP::Presenter do
     it "works" do
       Screen.should_receive(:clear!).twice
       presenter.should_receive(:puts).at_least(:once)
-      $stdin.should_receive(:gets).twice
+      Keyboard.should_receive(:wait_for_enter).twice
 
       presenter.present
     end

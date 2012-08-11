@@ -10,7 +10,7 @@ module TP
       slides.each do |slide|
         Screen.clear!
         show_slide slide
-        wait_for_enter
+        Keyboard.wait_for_enter
       end
     end
 
