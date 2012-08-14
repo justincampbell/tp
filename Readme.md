@@ -2,23 +2,55 @@
 
 Terminal Presenter
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'tp'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install tp
-
-## Usage
+## Installation and Usage
 
 ```sh
-tp presentation.md
+gem install tp
+tp slides.md
+```
+
+## Slide Deck
+
+```md
+# tp
+
+# tp
+
+Terminal Presenter
+
+# tp
+
+Presents Markdown in your terminal
+
+# Installation
+
+gem install tp
+
+# Usage
+
+tp slides.md
+
+# Navigation
+
+* Arrow keys
+* Space/Enter/Backspace
+* H,J,K,L (VIM)
+* Q to quit
+
+# Paragraphs
+
+Short paragraphs are centered
+
+# Paragraphs
+
+Sometimes paragraphs are really really long and might wrap a few lines. It does it's best to wrap them logically. Also, they stay left-aligned.
+
+# Contribute
+
+JustinCampbell/tp
+
+# Thanks!
+
+@JustinCampbell
 ```
 
