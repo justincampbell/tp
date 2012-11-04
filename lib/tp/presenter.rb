@@ -16,9 +16,9 @@ module TP
         show_slide slide_deck.current or break
 
         case Keyboard.read
-        when :right, :down, :space, :return, 'l', 'k'
+        when :right, :down, :space, :return, 'l', 'k', 'd', 's'
           slide_deck.next
-        when :left, :up, :backspace, 'h', 'j'
+        when :left, :up, :backspace, 'h', 'j', 'a', 'w'
           slide_deck.previous
         when 'q'
           break
