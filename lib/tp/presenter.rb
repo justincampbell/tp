@@ -11,9 +11,7 @@ module TP
       Keyboard.wait_for_return
 
       loop do
-        Screen.clear!
-
-        show_slide slide_deck.current or break
+        Renderer.new(slide_deck.current_slide).render
 
         case Keyboard.read
         when :right, :down, :space, :return, 'l', 'k', 'd', 's'
@@ -23,6 +21,8 @@ module TP
         when 'q'
           break
         end
+
+        break if slide_deck.ended?
       end
 
       Screen.clear!
@@ -38,33 +38,6 @@ module TP
 
     def slide_deck
       @slide_deck ||= SlideDeck.new slides
-    end
-
-    def show_slide(slide)
-      return unless slide
-
-      buffer = slide.header.center Screen.width
-
-      if slide.body
-        buffer << "\n\n"
-
-        if slide.paragraph
-          paragraph = slide.paragraph.wrap Screen.width
-          paragraph = paragraph.center Screen.width if paragraph.lines.one?
-
-          buffer << paragraph
-        else
-          slide.bullets.each { |string| buffer << "#{bullet}#{string}\n" }
-        end
-      end
-
-      print buffer
-
-      true
-    end
-
-    def bullet
-      "\u2022 "
     end
   end
 end

@@ -1,3 +1,5 @@
+ENV['RUBY_ENV'] ||= 'test'
+
 require 'support/klass'
 
 puts RUBY_DESCRIPTION

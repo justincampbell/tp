@@ -26,9 +26,7 @@ describe TP::Presenter do
   describe "#present" do
     it "works" do
       Keyboard.should_receive(:wait_for_return).exactly(1).times
-      Screen.should_receive(:clear!).exactly(5).times
-
-      presenter.should_receive(:print).exactly(3).times
+      Screen.should_receive(:clear!).exactly(4).times
 
       presenter.present
     end

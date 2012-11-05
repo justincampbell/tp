@@ -14,6 +14,11 @@ module TP
     def current
       slides[cursor]
     end
+    alias current_slide current
+
+    def ended?
+      not current
+    end
 
     def next
       self.cursor += 1
