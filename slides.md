@@ -32,6 +32,10 @@ Short paragraphs are centered
 
 Sometimes paragraphs are really really long and might wrap a few lines. It does it's best to wrap them logically. Also, they stay left-aligned.
 
+#
+
+Headers can also be blank
+
 # Contribute
 
 JustinCampbell/tp

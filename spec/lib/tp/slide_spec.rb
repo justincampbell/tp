@@ -45,6 +45,18 @@ describe TP::Slide do
     its(:paragraph) { should be_nil }
   end
 
+  context "with a blank header" do
+    let(:markdown) {
+      "#\n\nFirst Slide"
+    }
+
+    its(:header) { should be_empty }
+    its(:body) { should == "First Slide" }
+
+    its(:bullets) { should be_nil }
+    its(:paragraph) { should == "First Slide" }
+  end
+
   context "with trailing newlines" do
     let(:markdown) {
       "# First Slide\n\n* Bullet 1\n* Bullet 2\n\n"

@@ -7,15 +7,14 @@ module TP
     end
 
     def header
-      match = markdown.match /^#\s*(.+)(?:\n)*/
-
-      match[1] if match
+      line = lines.first
+      line[1, line.length - 1].to_s.strip
     end
 
     def body
-      match = markdown.match /^#\s*.+\n\n(.*)/m
+      result = lines[2, lines.count - 2]
 
-      match[1] if match
+      result.join "" if result
     end
 
     def bullets
@@ -28,6 +27,12 @@ module TP
 
     def paragraph
       body unless bullets
+    end
+
+    private
+
+    def lines
+      markdown.lines.to_a
     end
   end
 end
