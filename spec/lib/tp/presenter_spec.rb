@@ -15,6 +15,10 @@ describe TP::Presenter do
       # Paragraph
 
       This is a really long paragraph. Kinda.
+
+      #
+
+      Blank header
     MD
   }
 
@@ -26,7 +30,7 @@ describe TP::Presenter do
   describe "#present" do
     it "works" do
       Keyboard.should_receive(:wait_for_return).exactly(1).times
-      Screen.should_receive(:clear!).exactly(4).times
+      Screen.should_receive(:clear!).exactly(5).times
 
       presenter.present
     end

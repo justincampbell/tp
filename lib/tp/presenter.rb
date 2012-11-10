@@ -29,7 +29,7 @@ module TP
     end
 
     def slides
-      result = markdown.split /^# /
+      result = markdown.split /^#/
       result.reject! &:empty?
       result.map! { |string| string.prepend "#" }
 
