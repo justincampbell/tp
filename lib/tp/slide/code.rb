@@ -29,6 +29,7 @@ class TP::Slide::Code < TP::Slide
 
   def language
     case raw_language
+    when nil then "text"
     when "clj" then "clojure"
     when "objc" then "cpp"
     when "rb" then "ruby"
