@@ -24,6 +24,14 @@ describe TP::Slide::Code do
 
       highlighted_code
     end
+
+    context "with no language" do
+      let(:markdown) { "# Code\n\n```\nThis is a code block\n```" }
+
+      it "doesn't raise an error" do
+        highlighted_code
+      end
+    end
   end
 
   describe "#render" do

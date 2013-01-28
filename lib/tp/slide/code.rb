@@ -22,7 +22,9 @@ class TP::Slide::Code < TP::Slide
   end
 
   def raw_language
-    lines[2].match(/^\`{3}(\w+)/)[1]
+    match = lines[2].match(/^\`{3}(\w+)/)
+
+    match[1] if match
   end
 
   def language
