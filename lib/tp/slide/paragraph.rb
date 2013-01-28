@@ -1,9 +1,15 @@
 class TP::Slide::Paragraph < TP::Slide
   def render
-    paragraph = content.wrap Screen.width
-    paragraph = paragraph.center Screen.width if paragraph.lines.one?
+    centered_header +
+      "\n\n" +
+      paragraph
+  end
 
-    header.center(Screen.width) + "\n\n" + paragraph
+  def paragraph
+    buffer = content.wrap Screen.width
+    buffer = buffer.center Screen.width if buffer.lines.one?
+
+    buffer
   end
 
   def width

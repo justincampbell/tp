@@ -18,7 +18,9 @@ class TP::Slide::Bulleted < TP::Slide
   def frames
     return @frames if @frames
 
-    buffer = "#{header.center(Screen.width)}\n\n"
+    buffer = centered_header
+    buffer << "\n\n"
+
     @frames = [buffer.dup]
 
     bullets.each do |bullet|

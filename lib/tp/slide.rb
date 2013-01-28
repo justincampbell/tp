@@ -11,6 +11,10 @@ module TP
       line[1, line.length - 1].to_s.strip
     end
 
+    def centered_header
+      header.center Screen.width
+    end
+
     def content
       result = lines[2, lines.count - 2]
 

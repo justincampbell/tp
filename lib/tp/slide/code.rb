@@ -1,6 +1,6 @@
 class TP::Slide::Code < TP::Slide
   def render
-    header.center(Screen.width) +
+    centered_header +
       "\n\n" +
       highlighted_code
   end

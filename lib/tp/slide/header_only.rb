@@ -1,6 +1,6 @@
 class TP::Slide::HeaderOnly < TP::Slide
   def render
-    header.center Screen.width
+    centered_header
   end
 
   def width
