@@ -3,7 +3,7 @@
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/justincampbell/tp)
 [![Gem Version](https://badge.fury.io/rb/tp.png)](http://badge.fury.io/rb/tp)
 
-![Screenshot](http://f.cl.ly/items/0P0V2l2q381S3m3J0p0U/Screen%20Shot%202012-08-14%20at%207.52.52%20AM.png)
+![Demo](https://s3.amazonaws.com/justincampbell/tp.gif)
 
 ## Installation and Usage
 
