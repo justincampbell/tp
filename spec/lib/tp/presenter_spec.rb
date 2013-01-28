@@ -24,7 +24,7 @@ describe TP::Presenter do
 
   before :each do
     Keyboard.stub read: :return
-    Screen.stub width: 20, height: 20, suggest: nil
+    Screen.stub width: 20, height: 20, suggest: nil, hide_cursor: nil
   end
 
   describe "#present" do

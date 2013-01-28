@@ -13,6 +13,8 @@ module TP
 
       print text unless testing?
 
+      Screen.hide_cursor
+
       true
     end
 

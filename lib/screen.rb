@@ -5,6 +5,10 @@ module Screen
     print "\e[2J\e[f"
   end
 
+  def hide_cursor
+    print "\e[#{height};#{width}H"
+  end
+
   def height
     `tput lines`.to_i
   end
