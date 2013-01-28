@@ -54,13 +54,13 @@ There can also be...
 
 # Code
 
-```rb
+\```rb
 class And
   def it
     highlights(:code)
   end
 end
-```
+\```
 
 #
 
