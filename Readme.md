@@ -20,7 +20,7 @@ Terminal Presenter
 
 # tp
 
-Presents Markdown in your terminal
+Presents Markdown slides in your terminal
 
 # Installation
 
