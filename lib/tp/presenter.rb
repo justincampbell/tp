@@ -1,9 +1,9 @@
 module TP
   class Presenter
-    attr_accessor :markdown
+    attr_reader :markdown
 
     def initialize(markdown)
-      self.markdown = markdown
+      @markdown = markdown
     end
 
     def present

@@ -1,6 +1,6 @@
 class String
   def wrap(width)
-    self.split("\n").collect { |line|
+    split("\n").collect { |line|
       if line.length > width
         line.gsub(/(.{1,#{width}})(\s+|$)/, "\\1\n").strip
       else
