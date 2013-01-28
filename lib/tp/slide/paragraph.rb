@@ -15,4 +15,8 @@ class TP::Slide::Paragraph < TP::Slide
   def width
     content.length
   end
+
+  def hard_width?
+    false
+  end
 end

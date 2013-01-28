@@ -45,20 +45,27 @@ module TP
     end
 
     def width
-      slides_without_paragraphs = slides.reject { |slide| slide.class == TP::Slide::Paragraph }
-
-      if slides_without_paragraphs.empty?
-        [slides.collect(&:width).max, 80].min
+      if maximum_hard_width
+        [maximum_header_length, maximum_hard_width].max
       else
-        [
-          slides.collect(&:header).map(&:length).max,
-          slides_without_paragraphs.collect(&:width).max
-        ].max
+        [maximum_width, 80].min
       end
     end
 
     def height
       slides.collect(&:height).max
+    end
+
+    def maximum_header_length
+      slides.collect(&:header).map(&:length).max
+    end
+
+    def maximum_width
+      slides.collect(&:width).max
+    end
+
+    def maximum_hard_width
+      slides.select(&:hard_width?).collect(&:width).max
     end
   end
 end

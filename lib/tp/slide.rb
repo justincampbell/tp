@@ -40,5 +40,9 @@ module TP
     def height
       lines.count
     end
+
+    def hard_width?
+      true
+    end
   end
 end
