@@ -21,5 +21,11 @@ describe TP::SlideFactory do
 
       it { should be_a TP::Slide::Bulleted }
     end
+
+    context "with a code block" do
+      let(:markdown) { "# Code\n\n```rb\n:test\n```" }
+
+      it { should be_a TP::Slide::Code }
+    end
   end
 end
