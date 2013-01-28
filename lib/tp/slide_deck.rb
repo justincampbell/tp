@@ -56,5 +56,13 @@ module TP
 
       current
     end
+
+    def width
+      [slides.collect(&:width).max, 80].min
+    end
+
+    def height
+      slides.collect(&:height).max
+    end
   end
 end

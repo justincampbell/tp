@@ -29,6 +29,18 @@ module TP
       body unless bullets
     end
 
+    def width
+      return header.length unless body
+
+      (body.lines.to_a.collect(&:length) + [header.length]).max
+    end
+
+    def height
+      return 1 unless body
+
+      body.lines.count + 2
+    end
+
     private
 
     def lines

@@ -10,5 +10,16 @@ describe TP::SlideDeck do
     ]
   }
 
+  its(:height) { should == 4 }
+  its(:width) { should == 19 }
+
+  context "with really long paragraphs" do
+    let (:slides) {
+      [TP::Slide.new("# First Slide\n\n#{'word ' * 100}")]
+    }
+
+    its(:width) { should == 80 }
+  end
+
   it { slide_deck.frames.count.should == 4 }
 end

@@ -7,7 +7,7 @@ module TP
     end
 
     def present
-      Screen.suggest 30, 8
+      Screen.suggest slide_deck.width, slide_deck.height
       Keyboard.wait_for_return
 
       loop do

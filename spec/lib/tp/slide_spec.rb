@@ -19,6 +19,9 @@ describe TP::Slide do
 
     its(:bullets) { should =~ ["Bullet 1", "Bullet 2"] }
     its(:paragraph) { should be_nil }
+
+    its(:width) { should == 11 }
+    its(:height) { should == 4 }
   end
 
   context "with a paragraph" do
@@ -31,6 +34,9 @@ describe TP::Slide do
 
     its(:bullets) { should be_nil }
     its(:paragraph) { should == "This is a paragraph of text" }
+
+    its(:width) { should == 27 }
+    its(:height) { should == 3 }
   end
 
   context "with just a header" do
@@ -43,6 +49,17 @@ describe TP::Slide do
 
     its(:bullets) { should be_nil }
     its(:paragraph) { should be_nil }
+
+    its(:width) { should == 11 }
+    its(:height) { should == 1 }
+  end
+
+  context "with a header longer than the paragraph" do
+    let(:markdown) {
+      "# This is a very long header\n\nand short paragraph"
+    }
+
+    its(:width) { should == 26 }
   end
 
   context "with a blank header" do
@@ -55,6 +72,9 @@ describe TP::Slide do
 
     its(:bullets) { should be_nil }
     its(:paragraph) { should == "First Slide" }
+
+    its(:width) { should == 11 }
+    its(:height) { should == 3 }
   end
 
   context "with trailing newlines" do
