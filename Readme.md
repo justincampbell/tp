@@ -52,7 +52,7 @@ There can also be...
 
 ...multiple paragraphs.
 
-# Cade
+# Code
 
 ```rb
 class And
