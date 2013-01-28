@@ -30,7 +30,13 @@ Short paragraphs are centered
 
 # Paragraphs
 
-Sometimes paragraphs are really really long and might wrap a few lines. It does it's best to wrap them logically. Also, they stay left-aligned.
+Sometimes paragraphs are really really long and might wrap a few lines. It does its best to wrap them logically. Also, they stay left-aligned.
+
+# Paragraphs
+
+There can also be...
+
+...multiple paragraphs.
 
 #
 
