@@ -58,7 +58,16 @@ module TP
     end
 
     def width
-      [slides.collect(&:width).max, 80].min
+      slides_without_paragraphs = slides.reject(&:paragraph)
+
+      if slides_without_paragraphs.empty?
+        [slides.collect(&:width).max, 80].min
+      else
+        [
+          slides.collect(&:header).map(&:length).max,
+          slides_without_paragraphs.collect(&:width).max
+        ].max
+      end
     end
 
     def height
