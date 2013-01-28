@@ -1,10 +1,10 @@
 module TP
   class SlideDeck
-    attr_accessor :cursor, :slides
+    attr_reader :cursor, :slides
 
     def initialize(slides)
-      self.cursor = 0
-      self.slides = slides
+      @cursor = 0
+      @slides = slides
     end
 
     def [](index)
@@ -26,39 +26,26 @@ module TP
       @frames = []
 
       slides.each do |slide|
-        if slide.bullets
-          buffer = "# #{slide.header}"
-
-          @frames << Slide.new(buffer)
-
-          buffer << "\n"
-
-          slide.bullets.each do |bullet|
-            buffer << "\n* #{bullet}"
-            @frames << Slide.new(buffer)
-          end
-        else
-          @frames << Slide.new("# #{slide.header}\n\n#{slide.body}")
-        end
+        @frames |= slide.frames
       end
 
       @frames
     end
 
     def next
-      self.cursor += 1
+      @cursor += 1
 
       current
     end
 
     def previous
-      self.cursor -= 1
+      @cursor -= 1
 
       current
     end
 
     def width
-      slides_without_paragraphs = slides.reject(&:paragraph)
+      slides_without_paragraphs = slides.reject { |slide| slide.class == TP::Slide::Paragraph }
 
       if slides_without_paragraphs.empty?
         [slides.collect(&:width).max, 80].min

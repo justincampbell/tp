@@ -5,8 +5,8 @@ describe TP::SlideDeck do
 
   let(:slides) {
     [
-      TP::Slide.new("# First Slide\n\n* Bullet 1\n* Bullet 2"),
-      TP::Slide.new("# Second Slide\n\nThis is a paragraph")
+      TP::SlideFactory.from_markdown("# First Slide\n\n* Bullet 1\n* Bullet 2"),
+      TP::SlideFactory.from_markdown("# Second Slide\n\nThis is a paragraph")
     ]
   }
 
@@ -15,7 +15,7 @@ describe TP::SlideDeck do
 
   context "with only really long paragraphs" do
     let (:slides) {
-      [TP::Slide.new("# First Slide\n\n#{'word ' * 100}")]
+      [TP::SlideFactory.from_markdown("# First Slide\n\n#{'word ' * 100}")]
     }
 
     its(:width) { should == 80 }

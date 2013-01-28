@@ -33,7 +33,7 @@ module TP
       result.reject! &:empty?
       result.map! { |string| string.prepend "#" }
 
-      result.map { |string| Slide.new string }
+      result.map { |string| SlideFactory.from_markdown string }
     end
 
     def slide_deck

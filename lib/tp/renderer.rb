@@ -1,36 +1,23 @@
 module TP
   class Renderer
-    BULLET = "\u2022 "
+    attr_reader :text
 
-    attr_accessor :slide
-
-    def initialize(slide)
-      self.slide = slide
+    def initialize(text)
+      @text = text
     end
 
     def render
       Screen.clear!
 
-      return unless slide
+      return unless text
 
-      buffer = slide.header.center Screen.width
-
-      if slide.body
-        buffer << "\n\n"
-
-        if slide.paragraph
-          paragraph = slide.paragraph.wrap Screen.width
-          paragraph = paragraph.center Screen.width if paragraph.lines.one?
-
-          buffer << paragraph
-        else
-          slide.bullets.each { |string| buffer << "#{BULLET}#{string}\n" }
-        end
-      end
-
-      print buffer unless ENV['RUBY_ENV'] == 'test'
+      print text unless testing?
 
       true
+    end
+
+    def testing?
+      ENV['RUBY_ENV'] == 'test'
     end
   end
 end
