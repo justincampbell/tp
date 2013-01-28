@@ -38,6 +38,16 @@ There can also be...
 
 ...multiple paragraphs.
 
+# Cade
+
+```rb
+class And
+  def it
+    highlights(:code)
+  end
+end
+```
+
 #
 
 Headers can also be blank

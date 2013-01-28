@@ -10,6 +10,8 @@ module TP
       case content.lines.first
       when /^\*\s/
         Slide::Bulleted.new markdown
+      when /^\`{3}/
+        Slide::Code.new markdown
       else
         Slide::Paragraph.new markdown
       end
