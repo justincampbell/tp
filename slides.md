@@ -38,8 +38,8 @@ Headers can also be blank
 
 # Contribute
 
-JustinCampbell/tp
+justincampbell/tp
 
 # Thanks!
 
-@JustinCampbell
+@justincampbell
