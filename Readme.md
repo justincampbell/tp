@@ -1,4 +1,4 @@
-# tp [![Build Status](https://secure.travis-ci.org/JustinCampbell/tp.png)](https://secure.travis-ci.org/JustinCampbell/tp) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/JustinCampbell/tp)
+# tp [![Build Status](https://secure.travis-ci.org/justincampbell/tp.png)](https://secure.travis-ci.org/justincampbell/tp) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/justincampbell/tp)
 
 ![Screenshot](http://f.cl.ly/items/0P0V2l2q381S3m3J0p0U/Screen%20Shot%202012-08-14%20at%207.52.52%20AM.png)
 
