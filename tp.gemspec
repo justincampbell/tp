@@ -10,8 +10,8 @@ Gem::Specification.new do |gem|
   gem.version       = TP::VERSION
   gem.authors       = ["Justin Campbell"]
   gem.email         = ["justin@justincampbell.me"]
-  gem.description   = "tp"
-  gem.summary       = "tp"
+  gem.summary       = "Terminal Presenter"
+  gem.description   = "Presents Markdown slides in your terminal"
   gem.homepage      = "http://github.com/justincampbell/tp"
 
   gem.files         = `git ls-files`.split $/
