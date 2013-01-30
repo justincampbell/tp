@@ -12,7 +12,7 @@ class TP::Slide::Bulleted < TP::Slide
   end
 
   def bullets
-    content.lines.to_a.map { |line| line.gsub(/^\*\s/, "").strip }
+    content.lines.to_a.map { |line| line.gsub(/^[\*|-]\s/, "").strip }
   end
 
   def frames

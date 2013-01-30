@@ -10,8 +10,16 @@ describe TP::Slide::Bulleted do
     Screen.stub width: 20
   end
 
+  its(:bullets) { should == ["Bullet 1", "Bullet 2"] }
+
   its(:width) { should == 10 }
   its(:height) { should == 4 }
+
+  context "with dash bullets" do
+    let(:markdown) { "# Bullets\n\n- Bullet 1\n- Bullet 2" }
+
+    its(:bullets) { should == ["Bullet 1", "Bullet 2"] }
+  end
 
   describe "#render" do
     subject(:lines) { slide.render.lines.to_a }
