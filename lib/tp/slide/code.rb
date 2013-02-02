@@ -12,7 +12,11 @@ class TP::Slide::Code < TP::Slide
     pdf.font 'Courier' do
       maximum_length = [code.lines.to_a.map(&:length).max, 80].min
       character_ratio = pdf.font_size / pdf.width_of("#")
-      pdf.text_box code.gsub(' ', Prawn::Text::NBSP),
+
+      prawn_code = code.gsub(' ', Prawn::Text::NBSP)
+      prawn_code = CodeRay.scan(prawn_code, language).to_prawn
+
+      pdf.formatted_text_box prawn_code,
         at: [pdf.bounds.left, pdf.bounds.top - header_height],
         height: pdf.bounds.height - header_height,
         size: (pdf.bounds.width / maximum_length) * character_ratio,

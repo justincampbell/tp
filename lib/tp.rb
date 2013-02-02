@@ -1,4 +1,5 @@
 require 'coderay'
+require 'coderay/prawn_encoder'
 require 'thor'
 
 require 'keyboard'
