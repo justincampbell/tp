@@ -6,8 +6,27 @@ module TP
       @arguments = arguments
     end
 
+    def help
+puts <<-HELP
+Terminal Presenter #{TP::VERSION}
+https://github.com/justincampbell/tp
+
+  tp FILENAME # Present a Markdown file in your terminal
+  tp help     # Display this help
+HELP
+    end
+
     def run
-      TP::Presenter.new(File.read(arguments[0])).present
+      return help unless arguments.any?
+      return help if arguments.first == "help"
+
+      TP::Presenter.new(File.read(filename)).present
+    end
+
+    private
+
+    def filename
+      arguments[0]
     end
   end
 end

@@ -14,6 +14,22 @@ describe TP::CLI do
 
     let(:run) { cli.run }
 
+    it "shows help" do
+      cli.should_receive(:help)
+
+      run
+    end
+
+    context "with 'help'" do
+      let(:arguments) { ["help"] }
+
+      it "shows help" do
+        cli.should_receive(:help)
+
+        run
+      end
+    end
+
     context "with a filename" do
       let(:arguments) { [filename] }
 
