@@ -20,6 +20,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency "coderay", "~> 1.0"
+  gem.add_dependency "prawn", "~> 0.12"
   gem.add_dependency "thor", "~> 0.17"
 
   gem.add_development_dependency "guard-rspec"
