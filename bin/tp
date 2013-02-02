@@ -4,4 +4,6 @@ $: << File.expand_path(File.join(File.dirname(__FILE__), "..", "lib"))
 
 require "tp"
 
-TP::CLI.new(ARGV).run
+ARGV.unshift(:present) if File.exist?(ARGV[0].to_s)
+
+TP::CLI.start

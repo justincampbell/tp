@@ -1,4 +1,5 @@
 require 'coderay'
+require 'thor'
 
 require 'keyboard'
 require 'screen'

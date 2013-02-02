@@ -1,32 +1,22 @@
 module TP
-  class CLI
-    attr_reader :arguments
+  class CLI < Thor
+    default_task :usage
 
-    def initialize(arguments)
-      @arguments = arguments
+    desc "usage", "Display usage banner", hide: true
+    def usage
+      puts [
+        "Terminal Presenter #{TP::VERSION}",
+        "https://github.com/justincampbell/tp"
+      ].join("\n")
+
+      puts "\n"
+
+      help
     end
 
-    def help
-puts <<-HELP
-Terminal Presenter #{TP::VERSION}
-https://github.com/justincampbell/tp
-
-  tp FILENAME # Present a Markdown file in your terminal
-  tp help     # Display this help
-HELP
-    end
-
-    def run
-      return help unless arguments.any?
-      return help if arguments.first == "help"
-
+    desc "FILENAME", "Present a Markdown file in your terminal"
+    def present(filename)
       TP::Presenter.new(File.read(filename)).present
-    end
-
-    private
-
-    def filename
-      arguments[0]
     end
   end
 end
