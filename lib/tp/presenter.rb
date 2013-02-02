@@ -11,7 +11,7 @@ module TP
       Keyboard.wait_for_return
 
       loop do
-        Renderer.new(slide_deck.current_frame).render
+        Renderer::Terminal.new(slide_deck.current_frame).render
 
         case Keyboard.read
         when :right, :down, :space, :return, 'l', 'k', 'd', 's'

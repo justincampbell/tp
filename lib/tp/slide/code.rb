@@ -1,5 +1,5 @@
 class TP::Slide::Code < TP::Slide
-  def render
+  def render_terminal
     centered_header +
       "\n\n" +
       highlighted_code

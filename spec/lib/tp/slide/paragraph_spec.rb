@@ -13,8 +13,8 @@ describe TP::Slide::Paragraph do
   its(:width) { should == 15 }
   its(:height) { should == 3 }
 
-  describe "#render" do
-    subject(:lines) { slide.render.lines.to_a }
+  describe "#render_terminal" do
+    subject(:lines) { slide.render_terminal.lines.to_a }
 
     it { lines.count.should == 3 }
 

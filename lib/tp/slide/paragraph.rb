@@ -1,5 +1,5 @@
 class TP::Slide::Paragraph < TP::Slide
-  def render
+  def render_terminal
     centered_header +
       "\n\n" +
       paragraph

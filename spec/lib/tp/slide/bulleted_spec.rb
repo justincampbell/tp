@@ -21,8 +21,8 @@ describe TP::Slide::Bulleted do
     its(:bullets) { should == ["Bullet 1", "Bullet 2"] }
   end
 
-  describe "#render" do
-    subject(:lines) { slide.render.lines.to_a }
+  describe "#render_terminal" do
+    subject(:lines) { slide.render_terminal.lines.to_a }
 
     it { lines.count.should == 4 }
 

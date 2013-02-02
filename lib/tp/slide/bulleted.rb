@@ -1,7 +1,7 @@
 class TP::Slide::Bulleted < TP::Slide
   BULLET = "\u2022 "
 
-  def render
+  def render_terminal
     frames.last
   end
 

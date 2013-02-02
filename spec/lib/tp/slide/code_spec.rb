@@ -34,8 +34,8 @@ describe TP::Slide::Code do
     end
   end
 
-  describe "#render" do
-    subject(:render) { slide.render }
+  describe "#render_terminal" do
+    subject(:render_terminal) { slide.render_terminal }
 
     before do
       slide.stub highlighted_code: "Highlighted code"

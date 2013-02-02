@@ -1,5 +1,5 @@
 class TP::Slide::HeaderOnly < TP::Slide
-  def render
+  def render_terminal
     centered_header
   end
 

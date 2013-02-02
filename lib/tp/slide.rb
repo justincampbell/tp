@@ -22,14 +22,14 @@ module TP
     end
 
     def frames
-      [render]
+      [render_terminal]
     end
 
     def lines
       markdown.lines.to_a
     end
 
-    def render
+    def render_terminal
       raise NotImplementedError
     end
 

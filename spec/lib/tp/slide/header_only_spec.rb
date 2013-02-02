@@ -13,8 +13,8 @@ describe TP::Slide::HeaderOnly do
   its(:width) { should == 6 }
   its(:height) { should == 1 }
 
-  describe "#render" do
-    subject(:lines) { slide.render.lines.to_a }
+  describe "#render_terminal" do
+    subject(:lines) { slide.render_terminal.lines.to_a }
 
     it { lines.count.should == 1 }
 
