@@ -14,6 +14,11 @@ module TP
       help
     end
 
+    desc "pdf FILENAME [OUTPUT]", "Convert a Markdown slide deck to a PDF"
+    def pdf(filename, output = nil)
+      TP::Publisher::PDF.new(filename, output).publish
+    end
+
     desc "FILENAME", "Present a Markdown file in your terminal"
     def present(filename)
       TP::Presenter.new(File.read(filename)).present

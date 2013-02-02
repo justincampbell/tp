@@ -1,4 +1,25 @@
 class TP::Slide::Code < TP::Slide
+  def render_pdf(pdf)
+    header_height = header != "" ? 1.in : 0
+
+    pdf.text_box header,
+      align: :center,
+      overflow: :shrink_to_fit,
+      single_line: true,
+      height: header_height,
+      size: 1.in
+
+    pdf.font 'Courier' do
+      maximum_length = [code.lines.to_a.map(&:length).max, 80].min
+      character_ratio = pdf.font_size / pdf.width_of("#")
+      pdf.text_box code.gsub(' ', Prawn::Text::NBSP),
+        at: [pdf.bounds.left, pdf.bounds.top - header_height],
+        height: pdf.bounds.height - header_height,
+        size: (pdf.bounds.width / maximum_length) * character_ratio,
+        valign: :center
+    end
+  end
+
   def render_terminal
     centered_header +
       "\n\n" +
