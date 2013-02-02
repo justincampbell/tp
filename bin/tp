@@ -4,4 +4,4 @@ $: << File.expand_path(File.join(File.dirname(__FILE__), "..", "lib"))
 
 require "tp"
 
-TP::Presenter.new(File.read(ARGV[0])).present
+TP::CLI.new(ARGV).run
