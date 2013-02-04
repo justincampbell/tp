@@ -7,9 +7,17 @@ module TP
     end
 
     def present
+      suggest_sizing
+      render_slides
+      clear_screen
+    end
+
+    def suggest_sizing
       Screen.suggest slide_deck.width, slide_deck.height
       Keyboard.wait_for_return
+    end
 
+    def render_slides
       loop do
         Renderer.new(slide_deck.current_frame).render
 
@@ -24,7 +32,9 @@ module TP
 
         break if slide_deck.ended?
       end
+    end
 
+    def clear_screen
       Screen.clear!
     end
 
