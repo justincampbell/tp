@@ -1,17 +1,15 @@
 class TP::Slide::Paragraph < TP::Slide
   def render_pdf(pdf)
-    header_height = header != "" ? 1.in : 0
-
     pdf.text_box header,
       align: :center,
       overflow: :shrink_to_fit,
       single_line: true,
-      height: header_height,
-      size: 1.in
+      height: pdf_header_height,
+      size: pdf_header_height
 
     pdf.text_box paragraph,
-      at: [pdf.bounds.left, pdf.bounds.top - header_height],
-      height: pdf.bounds.height - header_height,
+      at: pdf_content_top_left(pdf),
+      height: pdf_content_height(pdf),
       overflow: :shrink_to_fit,
       valign: :center
   end

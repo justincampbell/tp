@@ -1,27 +1,31 @@
 class TP::Slide::Code < TP::Slide
   def render_pdf(pdf)
-    header_height = header != "" ? 1.in : 0
-
     pdf.text_box header,
       align: :center,
       overflow: :shrink_to_fit,
       single_line: true,
-      height: header_height,
-      size: 1.in
+      height: pdf_header_height,
+      size: pdf_header_height
 
     pdf.font 'Courier' do
-      maximum_length = [code.lines.to_a.map(&:length).max, 80].min
-      character_ratio = pdf.font_size / pdf.width_of("#")
-
-      prawn_code = code.gsub(' ', Prawn::Text::NBSP)
-      prawn_code = CodeRay.scan(prawn_code, language).to_prawn
-
       pdf.formatted_text_box prawn_code,
-        at: [pdf.bounds.left, pdf.bounds.top - header_height],
-        height: pdf.bounds.height - header_height,
-        size: (pdf.bounds.width / maximum_length) * character_ratio,
+        at: pdf_content_top_left(pdf),
+        height: pdf_content_height(pdf),
+        size: (pdf.bounds.width / maximum_line_length) * character_ratio(pdf),
         valign: :center
     end
+  end
+
+  def character_ratio(pdf)
+    pdf.font_size / pdf.width_of("#")
+  end
+
+  def maximum_line_length
+    [code.lines.to_a.map(&:length).max, 80].min
+  end
+
+  def prawn_code
+    CodeRay.scan(code.gsub(' ', Prawn::Text::NBSP), language).to_prawn
   end
 
   def render_terminal
