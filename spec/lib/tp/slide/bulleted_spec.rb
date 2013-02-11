@@ -3,6 +3,7 @@ require 'spec_helper'
 describe TP::Slide::Bulleted do
   subject { slide }
 
+  let(:bullet) { TP::Slide::Bulleted::BULLET }
   let(:markdown) { "# Bullets\n\n* Bullet 1\n* Bullet 2" }
   let(:slide) { klass.new markdown }
 
@@ -31,9 +32,15 @@ describe TP::Slide::Bulleted do
     end
 
     it "renders bullets" do
-      lines[2].should == "#{TP::Slide::Bulleted::BULLET} Bullet 1\n"
-      lines[3].should == "#{TP::Slide::Bulleted::BULLET} Bullet 2\n"
+      lines[2].should == "#{bullet} Bullet 1\n"
+      lines[3].should == "#{bullet} Bullet 2\n"
     end
+  end
+
+  describe "#rendered_bullets" do
+    subject(:rendered_bullets) { slide.rendered_bullets }
+
+    it { should == "#{bullet} Bullet 1\n#{bullet} Bullet 2" }
   end
 
   describe "#frames" do

@@ -1,4 +1,5 @@
 require 'coderay'
+require 'coderay/prawn_encoder'
 require 'thor'
 
 require 'keyboard'
@@ -6,6 +7,7 @@ require 'screen'
 require 'string'
 require 'tp/cli'
 require 'tp/presenter'
+require 'tp/publisher/pdf'
 require 'tp/renderer'
 require 'tp/slide'
 require 'tp/slide/bulleted'

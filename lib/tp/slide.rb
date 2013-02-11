@@ -29,12 +29,16 @@ module TP
       markdown.lines.to_a
     end
 
-    def render_terminal
-      raise NotImplementedError
+    def pdf_content_height(pdf)
+      pdf.bounds.height - pdf_header_height
     end
 
-    def width
-      raise NotImplementedError
+    def pdf_content_top_left(pdf)
+      [pdf.bounds.left, pdf.bounds.top - pdf_header_height]
+    end
+
+    def pdf_header_height
+      header != "" ? 1.in : 0
     end
 
     def height

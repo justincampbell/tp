@@ -10,11 +10,15 @@ Presents Markdown slides in your terminal
 
 # Installation
 
-gem install tp
+```sh
+$ gem install tp
+```
 
 # Usage
 
-tp slides.md
+```sh
+$ tp slides.md
+```
 
 # Navigation
 
