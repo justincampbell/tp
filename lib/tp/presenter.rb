@@ -41,7 +41,7 @@ module TP
     def slides
       result = markdown.split /^#/
       result.reject! &:empty?
-      result.map! { |string| string.prepend "#" }
+      result.map! { |string| "##{string}" }
 
       result.map { |string| SlideFactory.from_markdown string }
     end
