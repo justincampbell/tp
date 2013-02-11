@@ -1,8 +1,13 @@
 require "bundler/gem_tasks"
+require 'cane/rake_task'
 require 'rspec/core/rake_task'
 
-desc 'Default: run specs'
-task default: :spec
+task default: :ci
 
-desc "Run specs"
+task :ci do
+  Rake::Task[:spec].invoke
+  Rake::Task[:cane].invoke
+end
+
+Cane::RakeTask.new
 RSpec::Core::RakeTask.new
