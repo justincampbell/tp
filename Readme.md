@@ -1,5 +1,5 @@
 # tp
-[![Build Status](https://secure.travis-ci.org/justincampbell/tp.png)](https://secure.travis-ci.org/justincampbell/tp)
+[![Build Status](https://travis-ci.org/justincampbell/tp.png?branch=master)](https://travis-ci.org/justincampbell/tp)
 [![Gem Version](https://badge.fury.io/rb/tp.png)](http://badge.fury.io/rb/tp)
 [![Code Climate](https://codeclimate.com/github/justincampbell/tp.png)](https://codeclimate.com/github/justincampbell/tp)
 
