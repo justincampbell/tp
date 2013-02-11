@@ -16,6 +16,9 @@ describe TP::Slide::Code do
   its(:code) { should == "class Thing\nend\n" }
   its(:language) { should == "ruby" }
 
+  its(:maximum_line_length) { should == 11 }
+  its(:prawn_code) { should be_a Array }
+
   describe "#highlighted_code" do
     subject(:highlighted_code) { slide.highlighted_code }
 

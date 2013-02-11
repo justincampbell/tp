@@ -7,10 +7,6 @@ module TP
       @slides = slides
     end
 
-    def [](index)
-      frames[index]
-    end
-
     def current
       frames[cursor]
     end
