@@ -1,4 +1,4 @@
 --abc-max 10
---gte coverage/.last_run.json,90
+--gte coverage/.last_run.json,95
 --no-doc
 --style-exclude spec/**/*
