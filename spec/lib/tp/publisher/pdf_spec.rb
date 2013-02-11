@@ -8,10 +8,4 @@ describe TP::Publisher::PDF do
   let(:output_filename) { nil }
 
   its(:output_filename) { should == "slides.pdf" }
-
-  describe "#publish" do
-    subject(:publish) { publisher.publish }
-
-    pending
-  end
 end

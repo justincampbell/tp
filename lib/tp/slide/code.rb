@@ -1,4 +1,11 @@
 class TP::Slide::Code < TP::Slide
+  LANGUAGE_MAPPINGS = {
+    [nil] => 'text',
+    %w[clj] => 'clojure',
+    %w[objc] => 'cpp',
+    %w[rb] => 'ruby'
+  }
+
   def render_pdf(pdf)
     pdf.text_box header,
       align: :center,
@@ -21,7 +28,7 @@ class TP::Slide::Code < TP::Slide
   end
 
   def maximum_line_length
-    [code.lines.to_a.map(&:length).max, 80].min
+    [code.lines.to_a.map { |line| line.rstrip.length }.max, 80].min
   end
 
   def prawn_code
@@ -57,13 +64,10 @@ class TP::Slide::Code < TP::Slide
   end
 
   def language
-    case raw_language
-    when nil then "text"
-    when "clj" then "clojure"
-    when "objc" then "cpp"
-    when "rb" then "ruby"
-    else
-      raw_language
+    LANGUAGE_MAPPINGS.each do |keys, value|
+      return value if keys.include? raw_language
     end
+
+    raw_language
   end
 end

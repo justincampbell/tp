@@ -41,18 +41,6 @@ module TP
       header != "" ? 1.in : 0
     end
 
-    def render_pdf(pdf)
-      raise NotImplementedError
-    end
-
-    def render_terminal
-      raise NotImplementedError
-    end
-
-    def width
-      raise NotImplementedError
-    end
-
     def height
       lines.count
     end

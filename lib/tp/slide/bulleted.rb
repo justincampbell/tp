@@ -1,5 +1,5 @@
 class TP::Slide::Bulleted < TP::Slide
-  BULLET = "\u2022 "
+  BULLET = "\u2022"
 
   def render_pdf(pdf)
     pdf.text_box header,
@@ -22,12 +22,16 @@ class TP::Slide::Bulleted < TP::Slide
 
   def width
     header_length = header.length
-    longest_bullet = bullets.collect(&:length).max + 2
+    longest_bullet = bullets.collect(&:length).max + bullet_length
     [header_length, longest_bullet].max
   end
 
   def bullets
     content.lines.to_a.map { |line| line.gsub(/^[\*|-]\s/, "").strip }
+  end
+
+  def bullet_length
+    BULLET.length + 1
   end
 
   def rendered_bullets
@@ -42,8 +46,8 @@ class TP::Slide::Bulleted < TP::Slide
 
     @frames = [buffer.dup]
 
-    bullets.each do |bullet|
-      buffer << "#{BULLET} #{bullet}\n"
+    bullets.each do |line|
+      buffer << "#{BULLET} #{line}\n"
       @frames << buffer.dup
     end
 
