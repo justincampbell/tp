@@ -2,26 +2,15 @@ module Keyboard
   extend self
 
   def read
-    begin
-      old_stty = `stty -g`
-      system "stty raw -echo"
+    chr = ""
 
-      chr = STDIN.getc.chr
+    with_stty "raw -echo" do
+      chr << STDIN.getc.chr
 
-      if chr == "\e"
-        extra_thread = Thread.new {
-          chr = chr + STDIN.getc.chr
-          chr = chr + STDIN.getc.chr
-        }
-
-        extra_thread.join 0.00001
-        extra_thread.kill
-      end
-    ensure
-      system "stty #{old_stty}"
+      chr = extra_thread_trick(chr) if chr == "\e"
     end
 
-    symbolize chr
+    symbolize(chr)
   end
 
   def wait_for_return
@@ -33,6 +22,29 @@ module Keyboard
   end
 
   private
+
+  def extra_thread_trick(chr)
+    extra_thread = Thread.new {
+      chr = chr + STDIN.getc.chr
+      chr = chr + STDIN.getc.chr
+    }
+
+    extra_thread.join 0.00001
+    extra_thread.kill
+
+    chr
+  end
+
+  def with_stty(options, &block)
+    begin
+      old_stty = `stty -g`
+      system "stty #{options}"
+
+      yield
+    ensure
+      system "stty #{old_stty}"
+    end
+  end
 
   def symbolize(character)
     case character
