@@ -14,7 +14,7 @@ class PrawnEncoder < CodeRay::Encoders::Encoder
     keyword: "CC7833",
     method: "FFC66D",
     string: "A5C261",
-    symbol: "6D9CBE" 
+    symbol: "6D9CBE"
   }
 
   def setup(options)
