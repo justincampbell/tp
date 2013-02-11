@@ -23,8 +23,11 @@ Gem::Specification.new do |gem|
   gem.add_dependency "prawn", "~> 0.12"
   gem.add_dependency "thor", "~> 0.17"
 
+  gem.add_development_dependency "cane"
+  gem.add_development_dependency "guard"
   gem.add_development_dependency "guard-rspec"
+  gem.add_development_dependency "guard-cane"
   gem.add_development_dependency "rake"
   gem.add_development_dependency "rspec"
-  gem.add_development_dependency "simplecov" if RUBY_DESCRIPTION.start_with? "ruby 1.9"
+  gem.add_development_dependency "simplecov" if RUBY_DESCRIPTION.start_with? "ruby"
 end
