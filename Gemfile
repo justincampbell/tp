@@ -2,6 +2,8 @@ source :rubygems
 
 gemspec
 
+gem 'cane', github: 'square/cane'
+
 group :development, :test do
   group :darwin do
     gem 'rb-fsevent'
