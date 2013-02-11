@@ -5,6 +5,5 @@ rvm:
   - ruby-head
 matrix:
   allow_failures:
-    - rvm: 1.9.2
     - rvm: ruby-head
 
