@@ -11,4 +11,10 @@ describe TP::Slide do
 
   its(:header) { should == "First Slide" }
   its(:content) { should == "This is a slide with a paragraph" }
+
+  context "when there are no lines" do
+    let(:markdown) { "# First Slice\n" }
+
+    its(:content) { should eq("") }
+  end
 end

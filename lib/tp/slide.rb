@@ -16,9 +16,7 @@ module TP
     end
 
     def content
-      result = lines[2, lines.count - 2]
-
-      result.join if result
+      Array(lines[2, lines.count - 2]).join
     end
 
     def frames
