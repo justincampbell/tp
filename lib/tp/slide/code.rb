@@ -2,6 +2,7 @@ class TP::Slide::Code < TP::Slide
   LANGUAGE_MAPPINGS = {
     [nil] => 'text',
     %w[clj] => 'clojure',
+    %w[ex exs elixir] => 'ruby',
     %w[objc] => 'cpp',
     %w[rb] => 'ruby'
   }
