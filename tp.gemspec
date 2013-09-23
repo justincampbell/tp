@@ -12,7 +12,9 @@ Gem::Specification.new do |gem|
   gem.email         = ["justin@justincampbell.me"]
   gem.summary       = "Terminal Presenter"
   gem.description   = "Presents Markdown slides in your terminal"
-  gem.homepage      = "http://github.com/justincampbell/tp"
+  gem.homepage      = "https://github.com/justincampbell/tp"
+
+  gem.post_install_message = File.read('WELCOME')
 
   gem.files         = `git ls-files`.split $/
   gem.executables   = gem.files.grep(%r{^bin/}).map { |file| File.basename file }
