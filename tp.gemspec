@@ -12,7 +12,17 @@ Gem::Specification.new do |gem|
   gem.email         = ["justin@justincampbell.me"]
   gem.summary       = "Terminal Presenter"
   gem.description   = "Presents Markdown slides in your terminal"
-  gem.homepage      = "http://github.com/justincampbell/tp"
+  gem.homepage      = "https://github.com/justincampbell/tp"
+
+  gem.post_install_message = <<-MESSAGE
+    Thanks for installing tp! Please don't hesitate to report bugs and feature
+    requests at https://github.com/justincampbell/tp
+
+    You can now play a slideshow with:
+
+      tp slides.md
+
+  MESSAGE
 
   gem.files         = `git ls-files`.split $/
   gem.executables   = gem.files.grep(%r{^bin/}).map { |file| File.basename file }
