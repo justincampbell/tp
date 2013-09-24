@@ -1,0 +1,26 @@
+
+  Thanks for installing tp! Please don't hesitate to report bugs and feature
+  requests at:
+
+    https://github.com/justincampbell/tp/issues
+
+  To get started, create a Markdown file with your slides. Each # is a new
+  slide:
+
+    # Slide Title
+
+    Some Text
+
+    # Another Slide
+
+    * Some
+    * Bullets
+
+  For more examples, take a look at:
+
+    https://raw.github.com/justincampbell/tp/master/slides.md
+
+  You can now play a slideshow with:
+
+    tp slides.md
+
