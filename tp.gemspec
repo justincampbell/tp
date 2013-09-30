@@ -13,6 +13,7 @@ Gem::Specification.new do |gem|
   gem.summary       = "Terminal Presenter"
   gem.description   = "Presents Markdown slides in your terminal"
   gem.homepage      = "https://github.com/justincampbell/tp"
+  gem.license       = "MIT"
 
   gem.post_install_message = File.read('WELCOME')
 
