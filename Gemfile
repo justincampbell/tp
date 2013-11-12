@@ -2,9 +2,8 @@ source 'https://rubygems.org'
 
 gemspec
 
-group :development, :test do
-  group :darwin do
-    gem 'rb-fsevent'
-    gem 'growl'
-  end
+group :guard do
+  gem 'guard'
+  gem 'guard-cane'
+  gem 'guard-rspec'
 end
