@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'generative', path: '../generative'
+gem 'generative'
 
 group :development, :test do
   gem 'guard'
