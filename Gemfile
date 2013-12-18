@@ -2,9 +2,10 @@ source 'https://rubygems.org'
 
 gemspec
 
+gem 'generative', path: '../generative'
+
 group :development, :test do
-  group :darwin do
-    gem 'rb-fsevent'
-    gem 'growl'
-  end
+  gem 'guard'
+  gem 'guard-cane'
+  gem 'guard-rspec'
 end
