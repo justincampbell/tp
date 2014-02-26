@@ -29,6 +29,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "thor", "~> 0.17"
 
   gem.add_development_dependency "cane"
+  gem.add_development_dependency "generative"
   gem.add_development_dependency "guard"
   gem.add_development_dependency "guard-rspec"
   gem.add_development_dependency "guard-cane"
