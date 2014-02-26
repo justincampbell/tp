@@ -6,5 +6,17 @@ describe String do
 
     it { string.wrap(1).should == "One\ntwo\nthree\nfour\nfive" }
     it { string.wrap(10).should == "One two\nthree four\nfive" }
+
+    it "accepts 0 as a length" do
+      expect(string.wrap(0)).to be_a(String)
+    end
+
+    generative do
+      data(:length) { rand(255) }
+
+      it "accepts any length" do
+        expect(string.wrap(length)).to be_a(String)
+      end
+    end
   end
 end
