@@ -1,0 +1,4 @@
+image: bradrydzewski/ruby:1.9.3
+script:
+  - bundle
+  - bundle exec rake
