@@ -11,15 +11,11 @@ module TP
 
       return unless text
 
-      print text unless testing?
+      Screen.print text
 
       Screen.hide_cursor
 
       true
-    end
-
-    def testing?
-      ENV['RUBY_ENV'] == 'test'
     end
   end
 end

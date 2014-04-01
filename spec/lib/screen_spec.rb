@@ -7,6 +7,8 @@ describe Screen do
     subject(:clear!) { klass.clear! }
 
     it "clears the screen" do
+      Screen.unstub :clear!
+
       Screen.should_receive(:print).with("\e[2J\e[f")
 
       clear!
