@@ -13,6 +13,10 @@ module Screen
     `tput lines`.to_i
   end
 
+  def print(text)
+    Kernel.print text
+  end
+
   def suggest(x, y)
     y.times do |n|
       print "\n" if n.nonzero?
