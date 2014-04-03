@@ -22,9 +22,9 @@ module TP
         Renderer.new(slide_deck.current_frame).render
 
         case Keyboard.read
-        when :right, :down, :space, :return, 'l', 'k', 'd', 's'
+        when :right, :down, :space, :return, 'l', 'j', 'd', 's'
           slide_deck.next
-        when :left, :up, :backspace, 'h', 'j', 'a', 'w'
+        when :left, :up, :backspace, 'h', 'k', 'a', 'w'
           slide_deck.previous
         when 'q'
           break
