@@ -13,6 +13,15 @@ describe TP::Slide::Paragraph do
   its(:width) { should == 15 }
   its(:height) { should == 3 }
 
+  context "when text is wrapped" do
+    before do
+      Screen.stub width: 10
+    end
+
+    its(:width) { should == 10 }
+    its(:height) { should == 4 }
+  end
+
   describe "#render_terminal" do
     subject(:lines) { slide.render_terminal.lines.to_a }
 

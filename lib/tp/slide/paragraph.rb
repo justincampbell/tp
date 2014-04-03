@@ -28,7 +28,11 @@ class TP::Slide::Paragraph < TP::Slide
   end
 
   def width
-    content.length
+    [Screen.width, content.length].min
+  end
+
+  def height
+    content.wrap(Screen.width).lines.count + 2
   end
 
   def hard_width?
