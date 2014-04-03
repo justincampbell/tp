@@ -3,6 +3,27 @@ require 'screen'
 require 'spec_helper'
 
 describe Screen do
+  describe ".add_gutter" do
+    subject(:add_gutter) { klass.add_gutter(text) }
+
+    let(:text) { "  Header  " }
+
+    before do
+      klass.stub width: 10
+    end
+
+    it "adds a gutter on the top and left" do
+      expect(add_gutter).to eq("\n    Header  ")
+    end
+
+    context "with a paragraph slide" do
+      let(:text) { "  Header  \n\nAbc" }
+      it "indents the text and leaves a space on the right" do
+        expect(add_gutter).to eq("\n    Header  \n\n  Abc")
+      end
+    end
+  end
+
   describe ".clear!" do
     subject(:clear!) { klass.clear! }
 

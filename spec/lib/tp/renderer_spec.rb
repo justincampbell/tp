@@ -19,7 +19,7 @@ describe TP::Renderer do
     end
 
     it "prints the text to the screen" do
-      expect(Screen).to receive(:print).with(text)
+      expect(Screen).to receive(:print).with(Screen.add_gutter(text))
 
       render
     end

@@ -11,7 +11,7 @@ module TP
 
       return unless text
 
-      Screen.print text
+      Screen.print Screen.add_gutter(text)
 
       Screen.hide_cursor
 
