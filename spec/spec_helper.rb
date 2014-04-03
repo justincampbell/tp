@@ -17,5 +17,6 @@ RSpec.configure do |config|
 
   config.before do
     Screen.stub clear!: nil, print: nil
+    Screen.stub height: 34, width: 80
   end
 end
