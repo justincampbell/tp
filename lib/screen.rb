@@ -3,6 +3,8 @@ module Screen
 
   X_GUTTER = 2
   Y_GUTTER = 1
+  GUTTER_CHAR = "\u2591"
+  SUGGEST_CHAR = "\u2588"
 
   def add_gutter(text)
     text = text.lines.map { |line|
@@ -29,12 +31,12 @@ module Screen
   end
 
   def suggest(x, y)
-    Y_GUTTER.times { print "x" * (x + X_GUTTER * 2) + "\n" }
+    Y_GUTTER.times { print GUTTER_CHAR * (x + X_GUTTER * 2) + "\n" }
     y.times do |n|
       print "\n" if n.nonzero?
-      print "x" * X_GUTTER + "\u2588" * x + "x" * X_GUTTER
+      print GUTTER_CHAR * X_GUTTER + SUGGEST_CHAR * x + GUTTER_CHAR * X_GUTTER
     end
-    Y_GUTTER.times { print "\n" + "x" * (x + X_GUTTER * 2) }
+    Y_GUTTER.times { print "\n" + GUTTER_CHAR * (x + X_GUTTER * 2) }
   end
 
   def width
