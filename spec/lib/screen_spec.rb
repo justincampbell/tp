@@ -39,6 +39,8 @@ describe Screen do
   describe ".height" do
     subject(:height) { klass.height }
 
+    before { klass.unstub :height }
+
     it "returns the height" do
       height.should be_nonzero
     end
@@ -72,8 +74,16 @@ describe Screen do
     end
   end
 
+  describe ".suggest" do
+    it "prints the slide size with gutter" do
+
+    end
+  end
+
   describe ".width" do
     subject(:width) { klass.width }
+
+    before { klass.unstub :width }
 
     it "returns the width" do
       width.should be_nonzero
