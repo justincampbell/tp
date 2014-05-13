@@ -21,6 +21,9 @@ tp slides.md
 
 Terminal Presenter
 
+> These are presenter notes
+> They are hidden when presenting
+
 # tp
 
 Presents Markdown slides in your terminal

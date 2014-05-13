@@ -16,7 +16,9 @@ module TP
     end
 
     def content
-      Array(lines[2, lines.count - 2]).join
+      Array(lines[2, lines.count - 2]).reject { |line|
+        line.start_with?("> ")
+      }.join
     end
 
     def frames
