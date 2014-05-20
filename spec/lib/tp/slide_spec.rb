@@ -17,4 +17,12 @@ describe TP::Slide do
 
     its(:content) { should eq("") }
   end
+
+  context "with presenter notes" do
+    let(:markdown) { "# Header\n\nContent\n\n> Secrets" }
+
+    it "does not include presenter notes in the content" do
+      expect(slide.content).to_not include("Secrets")
+    end
+  end
 end

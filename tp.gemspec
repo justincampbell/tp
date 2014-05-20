@@ -31,5 +31,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'cane'
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
-  gem.add_development_dependency 'simplecov' if RUBY_DESCRIPTION.start_with? 'ruby'
+  gem.add_development_dependency 'simplecov'
 end
