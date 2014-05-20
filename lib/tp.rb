@@ -17,3 +17,17 @@ require 'tp/slide/paragraph'
 require 'tp/slide_deck'
 require 'tp/slide_factory'
 require 'tp/version'
+
+module TP
+  DEFAULTS = {
+    gutter: true
+  }.freeze
+
+  def self.reset!
+    @configuration = nil
+  end
+
+  def self.configuration
+    @configuration ||= DEFAULTS.dup
+  end
+end

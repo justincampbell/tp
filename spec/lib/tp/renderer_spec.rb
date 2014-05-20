@@ -23,5 +23,15 @@ describe TP::Renderer do
 
       render
     end
+
+    context "when configured with gutter: false" do
+      before { TP.configuration[:gutter] = false }
+
+      it "does not add a gutter" do
+        expect(Screen).to_not receive(:add_gutter)
+
+        render
+      end
+    end
   end
 end

@@ -31,15 +31,31 @@ describe TP::CLI do
   end
 
   describe "#present" do
-    subject(:present) { cli.present(input_filename) }
+    let(:presenter_double) { double(TP::Presenter, present: nil) }
 
     before do
       Keyboard.stub(:read).and_return(:return, :return, :backspace, 'q')
-      Screen.stub(:print)
+      Screen.stub :print
+
+      TP::Presenter.stub new: presenter_double
     end
 
     it "presents" do
-      present
+      expect(presenter_double).to receive(:present)
+
+      cli.present input_filename
+    end
+
+    context "when given options" do
+      let(:options) { { gutter: false } }
+
+      before { cli.stub options: options }
+
+      it "sets the options on the config instance" do
+        expect(TP.configuration).to receive(:merge!).with(options)
+
+        cli.present input_filename
+      end
     end
   end
 
