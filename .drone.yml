@@ -1,0 +1,7 @@
+image: bradrydzewski/ruby:1.9.3
+script:
+  - sudo chown ubuntu:ubuntu /tmp/cache/tp
+  - bundle install --path /tmp/cache/tp
+  - bundle exec rake
+cache:
+  - /tmp/cache/tp
