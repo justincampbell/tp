@@ -14,8 +14,10 @@ module TP
       help
     end
 
+    method_option :gutter, default: true
     desc "FILENAME", "Present a Markdown file in your terminal"
     def present(filename)
+      TP.configuration.merge! options
       TP::Presenter.new(File.read(filename)).present
     end
 

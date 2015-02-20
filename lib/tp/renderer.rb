@@ -11,7 +11,11 @@ module TP
 
       return unless text
 
-      Screen.print text
+      if TP.configuration[:gutter]
+        Screen.print Screen.add_gutter(text)
+      else
+        Screen.print text
+      end
 
       Screen.hide_cursor
 

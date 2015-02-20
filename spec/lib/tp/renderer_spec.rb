@@ -19,9 +19,19 @@ describe TP::Renderer do
     end
 
     it "prints the text to the screen" do
-      expect(Screen).to receive(:print).with(text)
+      expect(Screen).to receive(:print).with(Screen.add_gutter(text))
 
       render
+    end
+
+    context "when configured with gutter: false" do
+      before { TP.configuration[:gutter] = false }
+
+      it "does not add a gutter" do
+        expect(Screen).to_not receive(:add_gutter)
+
+        render
+      end
     end
   end
 end
